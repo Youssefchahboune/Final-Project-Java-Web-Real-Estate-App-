@@ -17,7 +17,7 @@ function Update() {
       <Banner Title="UPDATE" text={text()} />
 
       <div class="ml-[10.5%] py-5 pt-10 text-sm font-thin">
-        Seller Information
+        Property Information
       </div>
 
       <form action="" class="">
