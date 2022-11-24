@@ -37,10 +37,6 @@ function NavBar() {
             <li>
                 <a href="/Delete">Delete</a>
             </li>
-
-            <li>
-                <button class="bg-white text-black px-2 py-1 text-xs rounded-xl">ON/OFF</button>
-            </li>
         </ul>
     </div>
   )
