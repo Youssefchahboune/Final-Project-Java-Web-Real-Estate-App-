@@ -21,15 +21,15 @@ function Delete() {
       </div>
 
       <form action="" class="">
-        <div class="flex justify-center mx-10">
-          <div  class="flex flex-row border w-[1000px] h-32 gap-10 pl-20 pt-8 bg-white drop-shadow-md">
+        <div class="mx-[11%]">
+          <div  class="flex flex-row border w-[95%] h-32 gap-10 pl-10 pt-8 bg-white drop-shadow-md">
             <div class="flex flex-col">
-              <label htmlFor="">ID</label>
-              <input class="border pl-2" type="text" placeholder='Enter ID' />
+              <label class="text-sm font-thin" htmlFor="">ID</label>
+              <input class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
             </div>
             <div class="flex flex-col">
-              <label htmlFor="" >KEY</label>
-              <input class="border pl-2" type="text" placeholder='Enter KEY' />
+              <label class="text-sm font-thin" htmlFor="" >KEY</label>
+              <input class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxLength="6" minLength="6" required/>
             </div>
           </div>
         </div>
@@ -42,6 +42,8 @@ function Delete() {
             <button type="reset" class="px-5 py-1 bg-[lightgray] text-white">Clear</button>
           </div>
         </div>
+
+        
       </form>
 
       

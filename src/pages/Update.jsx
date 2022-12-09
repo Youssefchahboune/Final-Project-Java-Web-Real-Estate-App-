@@ -21,18 +21,18 @@ function Update() {
       </div>
 
       <form action="" class="">
-        <div class="flex justify-center mx-10">
-          <div  class="border w-[1000px] h-[150px] gap-20 pl-20 pt-3 bg-white drop-shadow-md">
+        <div class=" mx-[10.5%]">
+          <div  class="border w-[95%] h-[150px] gap-20 pl-10 pt-5 bg-white drop-shadow-md">
             
             <div class="flex flex-row gap-10">
 
               <div class="flex flex-col">
-                <label htmlFor="">ID</label>
-                <input class="border pl-2" type="text" placeholder='Enter ID' />
+                <label class="text-sm font-thin" htmlFor="">ID</label>
+                <input class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
               </div>
               <div class="flex flex-col">
-                <label htmlFor="" >KEY</label>
-                <input class="border pl-2" type="text" placeholder='Enter KEY' />
+                <label class="text-sm font-thin" htmlFor="" >KEY</label>
+                <input class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxlength="6" minlength="6" required />
               </div>
 
             </div>
@@ -40,8 +40,8 @@ function Update() {
             <div class="flex flex-row">
               
               <div class="flex flex-col mt-2">
-                <label htmlFor="status" >Status</label>
-                <select name="status" class="border w-36">
+                <label class="text-sm font-thin" htmlFor="status" >Status</label>
+                <select name="status" class="border w-36 text-sm font-thin">
                   <option value="none">Select Status</option>
                   <option value="available">Available</option>
                   <option value="sold">Sold</option>
