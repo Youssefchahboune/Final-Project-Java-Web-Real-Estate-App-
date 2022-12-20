@@ -5,7 +5,7 @@ import background from '../bg.jpg';
 function home() {
   return (
     <div>
-      <div class="flex justify-center -space-x-40 mt-10 mx-5">
+      <div class="flex justify-center -space-x-40 mt-10 mx-5 py-[6%]">
         <div class="bg-white w-[600px]">
           <img src={background} alt="bgimage" />
         </div>

@@ -36,11 +36,17 @@ function Properties() {
     <div>
       <Banner Title="PROPERTIES" text={text()} />
 
-      <div class="flex flex-wrap px-9 py-12 gap-5">
-        {properties.map((property) => {
-          return <PropertyCard property={property} />
-        })}
-      </div>
+      {properties.length === 0? 
+
+        <div class="text-center py-[12%] text-2xl opacity-25">Empty</div>
+
+      : 
+        <div class="flex flex-wrap px-9 py-12 gap-5">
+          {properties.map((property) => {
+            return <PropertyCard property={property} />
+          })}
+        </div>
+      }
 
     </div>
   )

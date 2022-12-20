@@ -2,6 +2,8 @@ import React from 'react';
 import '../App.css';
 import Banner from '../components/Banner';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const text = () => {
   
@@ -14,6 +16,36 @@ const text = () => {
 
 function Update() {
 
+  const propertyUpdated = () => toast.success("Property Updated Succesfuly!",{
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined
+  });
+
+  const Error = () => toast.error("Error Occured",{
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined
+  });
+
+  const Unauthorized = () => toast.error("Unauthorized, key does not match property id",{
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined
+  });
+
   const handleSubmit = event => {
 
     event.preventDefault();
@@ -25,9 +57,15 @@ function Update() {
     })
     .then((response) => {
       console.log(response);
+      propertyUpdated();
     }) 
     .catch((response) => {
       console.log(response);
+      if(response.response.status === 401){
+        Unauthorized();
+      } else {
+        Error();
+      }
     })
 
     event.target.idBox.value = "";
@@ -43,7 +81,7 @@ function Update() {
         Property Information
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} class="mb-[10%]">
         <div class=" mx-[10.5%]">
           <div  class="border w-[95%] h-[150px] gap-20 pl-10 pt-5 bg-white drop-shadow-md">
             
@@ -80,6 +118,7 @@ function Update() {
         <div class="flex flex-row gap-5 ml-[10.5%] mt-10">
           <div>
             <button type="submit" class="px-7 py-1 bg-black text-white">Update</button>
+            <ToastContainer />
           </div>
           <div>
             <button type="reset" class="px-5 py-1 bg-[lightgray] text-white">Clear</button>

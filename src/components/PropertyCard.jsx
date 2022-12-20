@@ -5,7 +5,7 @@ function PropertyCard({property}) {
 
   return (
     <div>
-        <div style={{opacity: property.status === "available"?"100%":"35%"}} class="w-72 h-82 border">
+        <div style={{opacity: property.status === "available"?"100%":"35%"}} class="w-72 h-82 border bg-white drop-shadow-lg">
             <div >
                 <img class="w-[286px] h-[190px]" src={property.imageURL} alt="property" />
             </div>

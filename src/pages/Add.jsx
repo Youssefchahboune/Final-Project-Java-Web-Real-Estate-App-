@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import '../App.css';
 import Banner from '../components/Banner';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const text = () => {
   
@@ -13,6 +15,26 @@ const text = () => {
 }
 
 function Add() {
+
+  const propertyAdded = () => toast.success("Property Added Successfuly!",{
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined
+  });
+
+  const Error = () => toast.error("Error Occured",{
+    position: "top-right",
+    autoClose: 2500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined
+  });
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -38,10 +60,28 @@ function Add() {
     axios.post("http://localhost:8081/api/properties",property)
     .then((response) => {
       console.log(response);
+      propertyAdded();
     }) 
     .catch((response) => {
+      Error();
       console.log(response);
     })
+
+    event.target.priceBox.value = "";
+    event.target.imageURL.value = "";
+    event.target.addressBox.value = "";
+    event.target.provinceBox.value = "QC";
+    event.target.bedsBox.value = "";
+    event.target.bathsBox.value = "";
+    event.target.typeBox.value = "House";
+    event.target.firstNameBox.value = "";
+    event.target.lastNameBox.value = "";
+    event.target.phoneBox.value = "";
+    event.target.emailBox.value = "";
+    event.target.keyBox.value = "";
+    
+
+    
 
   }
 
@@ -51,7 +91,7 @@ function Add() {
     <div>
       <Banner Title="ADD" text={text()}/>
 
-      <div class="py-[3%] px-[10%]">
+      <div class="py-[3%] pb-0 px-[10%]">
 
         <form onSubmit={handleSubmit}>
           <div class="flex flex-col justify-center ">
@@ -162,6 +202,7 @@ function Add() {
             <div class="flex flex-row gap-5 mt-10">
               <div>
                 <button type="submit" class="px-7 py-1 bg-black text-white">Add</button>
+                <ToastContainer />
               </div>
               <div>
                 <button type="reset" class="px-5 py-1 bg-[lightgray] text-white">Clear</button>
