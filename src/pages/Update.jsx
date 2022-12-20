@@ -8,9 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const text = () => {
   
   return <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit nesciunt, doloremque <br />
-    corrupti, itaque alias sed, fugiat aliquid reprehenderit consectetur esse <br />
-    possimus cum tempora soluta error eaque aut deleniti. Ab?
+    Welcome to our Update Property page! Here, you can easily update the status of your property, whether it's sold or available. <br />
+    To do so, simply provide the property's ID and your seller security key. This page is only for property owners <br />
+    who have already listed their properties on our website. <br />
+    Thank you for visiting!
   </p>
 }
 

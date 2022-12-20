@@ -14,9 +14,9 @@ function Properties() {
 
   const text = () => {
     return <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit nesciunt, doloremque <br />
-      corrupti, itaque alias sed, fugiat aliquid reprehenderit consectetur esse <br />
-      possimus cum tempora soluta error eaque aut deleniti. Ab?
+      Welcome to our Properties page! <br/>
+      Here, you can browse a variety of properties in Canada, including homes, villas, and buildings. <br />
+      Thank you for visiting!
     </p>
   }
 

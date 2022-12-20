@@ -8,9 +8,10 @@ import 'react-toastify/dist/ReactToastify.css';
 const text = () => {
   
   return <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit nesciunt, doloremque <br />
-    corrupti, itaque alias sed, fugiat aliquid reprehenderit consectetur esse <br />
-    possimus cum tempora soluta error eaque aut deleniti. Ab?
+    Welcome to our Add Property page! Here, you can easily add your property to our website by providing necessary <br />
+    information about yourself as the seller and the property. Whether you're a property owner <br />
+    or a real estate agent, you can use this page to list your properties <br />
+    for sale or for rent. Thank you for visiting!
   </p>
 }
 

@@ -8,9 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const text = () => {
   
   return <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore odit nesciunt, doloremque <br />
-    corrupti, itaque alias sed, fugiat aliquid reprehenderit consectetur esse <br />
-    possimus cum tempora soluta error eaque aut deleniti. Ab?
+    Welcome to our Delete Property page! Here, you can easily remove your property from our website <br />
+    by providing the property's ID and your seller security key. <br />
+    Thank you for visiting!
   </p>
 }
 
