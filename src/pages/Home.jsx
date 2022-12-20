@@ -20,7 +20,7 @@ function home() {
           <div class="text-white flex flex-row gap-8">
             <a class="bg-[#3d3d3d] px-5 py-1 text-sm rounded-sm" href="/properties">Properties</a>
             
-            <a class="bg-[#4a4a4a] px-5 py-1 text-sm rounded-sm" href="/Add">Add</a>
+            <a class="bg-[#4a4a4a] pl-5 py-1 text-sm rounded-sm" href="/Add">Add <span class="mx-2">+</span></a>
           </div>
         </div>
       </div>
