@@ -2,6 +2,9 @@ import React from 'react'
 
 function PropertyCard({property}) {
 
+    let price = parseFloat(property.price);
+
+    let formatedPrice = price.toLocaleString("en-US").toString();
 
   return (
     <div>
@@ -14,10 +17,10 @@ function PropertyCard({property}) {
                 {property.status === "available"? 
                 <>
                     <div>
-                        <span>{property.price}$</span> <br />
-                        <span>{property.address} {property.province}</span> <br />
+                        <span>{formatedPrice} $</span> <br />
+                        <span>{property.address} , {property.province}</span> <br />
                         <span>{property.beds} Beds - {property.baths} Baths - {property.type}</span> <br />
-                        <span>{property.seller.firstName} {property.seller.lastName}</span> <br />
+                        <span>{property.seller.lastName} {property.seller.firstName}</span> <br />
                         <span>{property.seller.phone}</span> <br />
                         <span>{property.seller.email}</span> <br />
                     </div>
