@@ -1,28 +1,45 @@
 import React from 'react'
 
-function PropertyCard(props) {
+function PropertyCard({property}) {
+
+
   return (
     <div>
-        <div class="w-72 h-82 border">
+        <div style={{opacity: property.status === "available"?"100%":"35%"}} class="w-72 h-82 border">
             <div >
-                <img class="w-[286px] h-[190px]" src={props.url} alt="property image" />
+                <img class="w-[286px] h-[190px]" src={property.imageURL} alt="property" />
             </div>
             <div class="px-5 py-3">
 
-                <div>
-                    <span>{props.price}$</span> <br />
-                    <span>{props.address} {props.province}</span> <br />
-                    <span>{props.beds} Beds - {props.baths} Baths - {props.type}</span> <br />
-                    <span>{props.firstName} {props.lastName}</span>
-                    <span>{props.Phone}</span> <br />
-                    <span>{props.email}</span> <br />  
-                </div>
-                
-                <hr class="my-3" />
+                {property.status === "available"? 
+                <>
+                    <div>
+                        <span>{property.price}$</span> <br />
+                        <span>{property.address} {property.province}</span> <br />
+                        <span>{property.beds} Beds - {property.baths} Baths - {property.type}</span> <br />
+                        <span>{property.seller.firstName} {property.seller.lastName}</span> <br />
+                        <span>{property.seller.phone}</span> <br />
+                        <span>{property.seller.email}</span> <br />
+                    </div>
+                    
+                    <hr class="my-3" />
+                    
+                    <div class="text-center">
+                        <span>{property.id}</span>
+                    </div>
+                </>
+                : 
+                <div class="h-[195px]">
+                    SOLD 
 
-                <div class="text-center">
-                    <span>{props.id}</span>
-                </div>
+                    <hr class="mt-[132px] my-3" />
+                    
+                    <div class="text-center">
+                        <span>{property.id}</span>
+                    </div>
+                </div>}
+
+                
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import '../App.css';
 import Banner from '../components/Banner';
@@ -12,34 +13,86 @@ const text = () => {
 }
 
 function Add() {
+
+  const handleSubmit = event =>{
+    event.preventDefault();
+
+    const property = {
+      "price": parseFloat(event.target.priceBox.value),
+      "imageUrl": event.target.imageURL.value,
+      "address": event.target.addressBox.value,
+      "province": event.target.provinceBox.value,
+      "beds": parseInt(event.target.bedsBox.value),
+      "baths": parseInt(event.target.bathsBox.value) ,
+      "type": event.target.typeBox.value,
+      "seller" : {
+        "firstName" : event.target.firstNameBox.value,
+        "lastName" : event.target.lastNameBox.value,
+        "phone" : event.target.phoneBox.value,
+        "email" : event.target.emailBox.value,
+        "sellerKey" : event.target.keyBox.value
+      }
+      
+    }
+
+    axios.post("http://localhost:8081/api/properties",property)
+    .then((response) => {
+      console.log(response);
+    }) 
+    .catch((response) => {
+      console.log(response);
+    })
+
+  }
+
+
+
   return (
     <div>
       <Banner Title="ADD" text={text()}/>
 
       <div class="py-[3%] px-[10%]">
 
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div class="flex flex-col justify-center ">
             <h2 class="text-sm font-thin">Seller Information</h2>
             <div class="border py-5 pl-10 pb-7 px-5 drop-shadow-lg bg-white my-4">
-              <div class="flex gap-5">
-                <div class="flex flex-col">
-                  <label class="text-sm font-thin" htmlFor="">First Name</label>
-                  <input class="border pl-2" type="text" required  />
+              <div class="flex flex-col">
+
+                <div class="flex flex-row gap-5">
+
+                  <div class="flex flex-col">
+                    <label class="text-sm font-thin" htmlFor="">First Name</label>
+                    <input name="firstNameBox" class="border pl-2" type="text" required  />
+                  </div>
+                  <div class="flex flex-col">
+                    <label class="text-sm font-thin" htmlFor="">Last Name</label>
+                    <input name="lastNameBox" class="border pl-2" type="text" required  />
+                  </div>
+                  
+                  <div class="flex flex-col">
+                    <label class="text-sm font-thin" htmlFor="">E-mail</label>
+                    <input name="emailBox" class="border pl-2" type="email" required />
+                  </div>
+
                 </div>
-                <div class="flex flex-col">
-                  <label class="text-sm font-thin" htmlFor="">Last Name</label>
-                  <input class="border pl-2" type="text" required  />
+
+                <div class="flex flex-row gap-5">
+
+                  <div class="flex flex-col">
+                    <label class="text-sm font-thin" htmlFor="">Phone</label>
+                    <input name="phoneBox" class="border pl-2" type="text" maxlength="10" minLength="10" required />
+                  </div>
+
+                  <div class="flex flex-col">
+                    <label class="text-sm font-thin" htmlFor="">Key</label>
+                    <input name="keyBox" class="border w-46 pl-2" type="text" maxlength="6" minlength="6" required />
+                  </div>
+
                 </div>
                 
-                <div class="flex flex-col">
-                  <label class="text-sm font-thin" htmlFor="">E-mail</label>
-                  <input class="border pl-2" type="text" required />
-                </div>
-                <div class="flex flex-col">
-                  <label class="text-sm font-thin" htmlFor="">Phone</label>
-                  <input class="border pl-2" type="text" maxlength="10" minLength="10" required />
-                </div>
+                
+              
               </div>
 
             </div>
@@ -51,33 +104,33 @@ function Add() {
               <div class="flex gap-5">
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Address</label>
-                  <input class="border w-80 pl-2" type="text" required  />
+                  <input name="addressBox" class="border w-80 pl-2" type="text" required  />
                 </div>
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Province</label>
-                  <select name="" id="" class="text-sm font-thin border">
-                    <option value="">QC</option>
-                    <option value="">YT</option>
-                    <option value="">NL</option>
-                    <option value="">PE</option>
-                    <option value="">NS</option>
-                    <option value="">NB</option>
-                    <option value="">ON</option>
-                    <option value="">MB</option>
-                    <option value="">SK</option>
-                    <option value="">AB</option>
-                    <option value="">BC</option>
-                    <option value="">NT</option>
-                    <option value="">NU</option>
+                  <select name="provinceBox" id="" class="text-sm font-thin border">
+                    <option value="QC">QC</option>
+                    <option value="YT">YT</option>
+                    <option value="NL">NL</option>
+                    <option value="PE">PE</option>
+                    <option value="NS">NS</option>
+                    <option value="NB">NB</option>
+                    <option value="ON">ON</option>
+                    <option value="MB">MB</option>
+                    <option value="SK">SK</option>
+                    <option value="AB">AB</option>
+                    <option value="BC">BC</option>
+                    <option value="NT">NT</option>
+                    <option value="NU">NU</option>
                   </select>
                 </div>
 
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Type</label>
-                  <select  name="" id="" class="text-sm font-thin border">
-                    <option value="">House</option>
-                    <option value="">Villa</option>
-                    <option value="">Building</option>
+                  <select  name="typeBox" id="" class="text-sm font-thin border">
+                    <option value="House">House</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Building">Building</option>
                   </select>
                 </div>
               </div>
@@ -85,30 +138,23 @@ function Add() {
               <div class="">
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Image (url)</label>
-                  <input class="border w-96 pl-2" type="text" required />
+                  <input name="imageURL" class="border w-96 pl-2" type="text" required />
                 </div>
               </div>
 
               <div class="flex gap-5">
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Price</label>
-                  <input class="border pl-2" type="text" required  />
+                  <input name="priceBox" class="border pl-2" type="text" required  />
                 </div>
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Beds</label>
-                  <input class="border w-12 pl-2" type="number" required />
+                  <input name="bedsBox" class="border w-12 pl-2" type="number" required />
                 </div>
 
                 <div class="flex flex-col">
                   <label class="text-sm font-thin" htmlFor="">Baths</label>
-                  <input class="border w-12 pl-2" type="number" required  />
-                </div>
-              </div>
-
-              <div class="">
-                <div class="flex flex-col">
-                  <label class="text-sm font-thin" htmlFor="">Key</label>
-                  <input class="border w-52 pl-2" type="text" maxlength="6" minlength="6" required />
+                  <input name="bathsBox" class="border w-12 pl-2" type="number" required  />
                 </div>
               </div>
             </div>

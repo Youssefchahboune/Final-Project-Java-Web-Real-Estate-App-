@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Banner from '../components/Banner';
+import axios from 'axios';
 
 const text = () => {
   
@@ -12,6 +13,28 @@ const text = () => {
 }
 
 function Update() {
+
+  const handleSubmit = event => {
+
+    event.preventDefault();
+
+    axios.patch("http://localhost:8081/api/properties",{
+      "id" : parseInt(event.target.idBox.value),
+      "key": event.target.keyBox.value,
+      "status": event.target.statusBox.value
+    })
+    .then((response) => {
+      console.log(response);
+    }) 
+    .catch((response) => {
+      console.log(response);
+    })
+
+    event.target.idBox.value = "";
+    event.target.keyBox.value = "";
+
+  }
+
   return (
     <div>
       <Banner Title="UPDATE" text={text()} />
@@ -20,7 +43,7 @@ function Update() {
         Property Information
       </div>
 
-      <form action="" class="">
+      <form onSubmit={handleSubmit}>
         <div class=" mx-[10.5%]">
           <div  class="border w-[95%] h-[150px] gap-20 pl-10 pt-5 bg-white drop-shadow-md">
             
@@ -28,11 +51,11 @@ function Update() {
 
               <div class="flex flex-col">
                 <label class="text-sm font-thin" htmlFor="">ID</label>
-                <input class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
+                <input name="idBox" class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
               </div>
               <div class="flex flex-col">
                 <label class="text-sm font-thin" htmlFor="" >KEY</label>
-                <input class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxlength="6" minlength="6" required />
+                <input name="keyBox" class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxlength="6" minlength="6" required />
               </div>
 
             </div>
@@ -41,10 +64,10 @@ function Update() {
               
               <div class="flex flex-col mt-2">
                 <label class="text-sm font-thin" htmlFor="status" >Status</label>
-                <select name="status" class="border w-36 text-sm font-thin">
+                <select name="statusBox" class="border w-36 text-sm font-thin">
                   <option value="none">Select Status</option>
-                  <option value="available">Available</option>
-                  <option value="sold">Sold</option>
+                  <option value="available">available</option>
+                  <option value="sold">sold</option>
                 </select>
               </div>
 

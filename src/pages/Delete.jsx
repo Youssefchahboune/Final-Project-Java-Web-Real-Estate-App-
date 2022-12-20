@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import Banner from '../components/Banner';
+import axios from 'axios';
 
 const text = () => {
   
@@ -12,6 +13,27 @@ const text = () => {
 }
 
 function Delete() {
+
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    
+    axios.delete("http://localhost:8081/api/properties", { data : {
+      "id" : parseInt(event.target.idBox.value),
+      "key" : event.target.keyBox.value
+    }})
+    .then((response) => {
+      console.log(response);
+    }) 
+    .catch((response) => {
+      console.log(response);
+    })
+
+    event.target.idBox.value = "";
+    event.target.keyBox.value = "";
+
+  }
+
   return (
     <div>
       <Banner Title="DELETE" text={text()} />
@@ -20,16 +42,16 @@ function Delete() {
         Property Information
       </div>
 
-      <form action="" class="">
+      <form onSubmit={handleSubmit}>
         <div class="mx-[11%]">
           <div  class="flex flex-row border w-[95%] h-32 gap-10 pl-10 pt-8 bg-white drop-shadow-md">
             <div class="flex flex-col">
               <label class="text-sm font-thin" htmlFor="">ID</label>
-              <input class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
+              <input name="idBox" class="border pl-2 w-[80%]" type="text" placeholder='Enter ID' required />
             </div>
             <div class="flex flex-col">
               <label class="text-sm font-thin" htmlFor="" >KEY</label>
-              <input class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxLength="6" minLength="6" required/>
+              <input name="keyBox" class="border pl-2 w-[80%]" type="text" placeholder='Enter KEY' maxLength="6" minLength="6" required/>
             </div>
           </div>
         </div>
