@@ -1,5 +1,5 @@
 
-# Real Estate App (frontend)
+# Real Estate App (Frontend)
 
 ## What is my application ?
 My web application is a CRUD (create, read, update, delete) platform that allows buyers to browse properties and contact sellers through the provided information. Sellers are also able to add one or multiple properties to the website for buyers to browse and potentially purchase. The application allows for easy communication and management of properties for both buyers and sellers.
