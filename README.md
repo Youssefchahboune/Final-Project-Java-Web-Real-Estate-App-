@@ -38,7 +38,7 @@ On the Update page, you can easily update the status of your property, whether i
 
 ![Screenshot 2022-12-21 132234](https://user-images.githubusercontent.com/99833243/208980062-72072601-5af4-4010-bc91-9cff4038fddb.png)
 
-## delete Property Page
+## Delete Property Page
 On the Delete page , you can easily remove your property from our website by providing the property's ID and your seller security key.
 
 ![Screenshot 2022-12-21 132249](https://user-images.githubusercontent.com/99833243/208980079-bf9865c6-6f1a-4eae-9113-1bcf45260b47.png)
